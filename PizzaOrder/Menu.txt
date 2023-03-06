@@ -1,0 +1,17 @@
+----------MENU----------
+1-Klasik Pizza: 44.99 TL
+2-Margherita: 49.99 TL
+3-Türk Pizza: 54.99 TL
+4-Dominos Pizza: 59.99 TL
+
+5-Küçük Boy: 0.7 * normal fiyat
+6-Orta Boy: 1 * normal fiyat
+7-Büyük Boy: 1.5 * normal fiyat
+
+11-Zeytin Sosu: normal fiyat + 2.50 TL
+12-Mantar Sosu: normal fiyat + 5.00 TL
+13-Keçi Peyniri Sosu: normal fiyat + 3.00 TL
+14-Et Sosu: normal fiyat + 7.50 TL
+15-Soğan Sosu: normal fiyat + 3.50 TL
+16-Mısır Sosu: normal fiyat + 4.50 TL
+
