@@ -1,8 +1,9 @@
 import csv
 from datetime import datetime
 import os
+import time
 
-#coded by İrem Abay and Ali Gultan
+#coded by İrem Abay and Ali Gültan
 #irem.abay@outlook.com & aligultanx@gmail.com
 
 print("\n")
@@ -19,7 +20,7 @@ print(''' _____ _                 ____          _              _____           _
 #Pizza classları oluşturuyoruz.
 
 class Pizza():
-    def __init__(self,aciklama,fiyat): #Ust sınıf olusturduk bunlardan sonraki pizza sınıfları super init fonksiyonuyla bu pizzalarin aciklama ve fiyatlarini alacak
+    def __init__(self,aciklama,fiyat): #Ust sınıf olusturduk bunlardan sonraki pizza sınıfları super init fonksiyonuyla bu pizzalarin aciklama ve fiyatlarini alicak
         self.aciklama=aciklama
         self.fiyat=fiyat
 
@@ -29,7 +30,7 @@ class Pizza():
         return self.fiyat
 
 
-class Klasik_Pizza(Pizza): # parantezin içine pizza yazmamızın sebebi class özelliklerini ana sınıftan alması(Pizza sınıfı)
+class Klasik_Pizza(Pizza): #parantezin içine pizza yazmamızın sebebi class özelliklerini ana sınıftan alması(Pizza sınıfı)
     def __init__(self):
         aciklama=f"Klasik Pizza"
         fiyat=44.99
@@ -54,7 +55,7 @@ class Dominos_Pizza(Pizza):
         super().__init__(aciklama, fiyat)
 
 
-# pizza boyutlarını pizza sınıflarıyla çarpan bir sınıf oluşturuyoruz mesela büyük  boy seçersen  fiyatını 1.50 la çarpmak için
+# Pizza boyutlarını pizza sınıflarıyla çarpan bir sınıf oluşturuyoruz mesela büyük  boy seçersen  fiyatını 1.50 la çarpmak için
 class Decarator(Pizza):
     def __init__(self,pizza,boyutuyla_carpma):
         self.pizza=pizza
@@ -184,7 +185,7 @@ def veritabanina_siparis_ekle(isim,tc_no,kredi_karti_no,kredi_karti_cvv,siparis_
     now=datetime.now()
     siparis_zamani=now.strftime("%Y-%m-%d %H:%M:%S")
 
-#siparis olusturuyoruz
+# siparis olusturuyoruz
 
     import os
     import csv
@@ -203,8 +204,6 @@ def veritabanina_siparis_ekle(isim,tc_no,kredi_karti_no,kredi_karti_cvv,siparis_
             writer = csv.writer(file)                        #csv dosyasına satır satır bilgileri ekleyecek
             writer.writerow(basliklar)
             writer.writerow(yeni_siparis)
-
-
 
 def main():
 
@@ -255,17 +254,31 @@ def main():
     else:
         sos=Misir_Sos(pizza)
 
+# Secilen pizzanın ücretini ekrana yazdırıyoruz
+    toplam_tutar = boyut.fiyatbilgisi_al() + sos.fiyatbilgisi_al()
+    print(f"Ödenecek Tutar: {toplam_tutar} TL")
 
 #Kullanicidan bilgilerini aliyoruz.
     isim=input("İsminiz: ")
     tc_no=input("Tc Kimlik numaraniz: ")
-    kredi_karti_no=input("Kredi Karti numaraniz: ")
-    kredi_karti_cvv=input("Kredi Karti cvv numaraniz: ")
+
+    # Kredi Kartı veya CVV bilgilerinin doğruca girildiğinden veya boş bırakılmadığından emin olmak için integer kontrolü yapıyoruz.
+    while True:
+        kredi_karti_no = input("Kredi Karti numaraniz: ")
+        if (kredi_karti_no.isdigit()):
+            break
+        else:
+            print("Lütfen geçerli bir kredi kartı giriniz!")
+            continue
+    while True:
+        kredi_karti_cvv = input("Kredi Karti cvv numaraniz: ")
+        if (kredi_karti_cvv.isdigit()):
+            break
+        else:
+            print("Lütfen geçerli bir cvv giriniz!")
+            continue
 
     siparis_aciklamasi = f"{boyut.aciklama_al()} {pizza.aciklama_al()} with {sos.aciklama_al()}"
-
-    toplam_tutar=boyut.fiyatbilgisi_al() + sos.fiyatbilgisi_al()
-
 
 # siparisi veritabanina kaydediyoruz.
     veritabanina_siparis_ekle(isim,tc_no,kredi_karti_no,kredi_karti_cvv,siparis_aciklamasi,toplam_tutar)
@@ -279,6 +292,7 @@ def main():
     print(f"Sipariş Açıklaması: {siparis_aciklamasi}")
     print(f"Toplam Fiyat: {toplam_tutar} TL")
     print(f"Sipariş Zamanı: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}")
+    time.sleep(1.5)
     print("\nSiparişiniz alınmıştır.\nBizi tercih ettiğiniz için teşekkür ederiz.")
 
 main()
