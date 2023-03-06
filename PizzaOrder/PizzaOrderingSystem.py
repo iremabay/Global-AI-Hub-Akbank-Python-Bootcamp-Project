@@ -256,6 +256,7 @@ def main():
 
 # Secilen pizzanın ücretini ekrana yazdırıyoruz
     toplam_tutar = boyut.fiyatbilgisi_al() + sos.fiyatbilgisi_al()
+    toplam_tutar = round(toplam_tutar,2)  # Fiyatın virgülden sonraki kısmının sadece ilk 2 basamağını göstermesi için round fonksiyonunu kullandık.
     print(f"Ödenecek Tutar: {toplam_tutar} TL")
 
 #Kullanicidan bilgilerini aliyoruz.
@@ -283,8 +284,7 @@ def main():
 # siparisi veritabanina kaydediyoruz.
     veritabanina_siparis_ekle(isim,tc_no,kredi_karti_no,kredi_karti_cvv,siparis_aciklamasi,toplam_tutar)
 
-#fiş oluşturma
-    toplam_tutar = round(toplam_tutar,2) # Fiyatın virgülden sonraki kısmının sadece ilk 2 basamağını göstermesi için round fonksiyonunu kullandık.
+#fiş oluşturma0
     print("Sipariş Detayları:\n")
     print(f"Ad: {isim}")
     print(f"TC Kimlik Numarası: {tc_no}")
