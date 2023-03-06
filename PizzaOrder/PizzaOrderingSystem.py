@@ -2,7 +2,7 @@ import csv
 from datetime import datetime
 import os
 
-#written by İrem Abay and Ali Gultan
+#coded by İrem Abay and Ali Gultan
 #irem.abay@outlook.com & aligultanx@gmail.com
 
 print("\n")
