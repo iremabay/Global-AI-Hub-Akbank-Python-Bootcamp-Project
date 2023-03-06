@@ -3,6 +3,7 @@ from datetime import datetime
 import os
 
 #written by İrem Abay and Ali Gultan
+#irem.abay@outlook.com & aligultanx@gmail.com
 
 print("\n")
 print("                                    HOŞGELDİNİZ\n")
