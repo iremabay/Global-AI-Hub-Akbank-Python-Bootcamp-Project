@@ -19,7 +19,7 @@ print(''' _____ _                 ____          _              _____           _
 #Pizza classları oluşturuyoruz.
 
 class Pizza():
-    def __init__(self,aciklama,fiyat): #Ust sınıf olusturduk bunlardan sonraki pizza sınıfları super init fonksiyonuyla bu pizzalarin aciklama ve fiyatlarini alicak
+    def __init__(self,aciklama,fiyat): #Ust sınıf olusturduk bunlardan sonraki pizza sınıfları super init fonksiyonuyla bu pizzalarin aciklama ve fiyatlarini alacak
         self.aciklama=aciklama
         self.fiyat=fiyat
 
@@ -29,7 +29,7 @@ class Pizza():
         return self.fiyat
 
 
-class Klasik_Pizza(Pizza): #parantezin içine pizza yazmamızın sebebi class özelliklerini ana sınıftan alması(Pizza sınıfı)
+class Klasik_Pizza(Pizza): # parantezin içine pizza yazmamızın sebebi class özelliklerini ana sınıftan alması(Pizza sınıfı)
     def __init__(self):
         aciklama=f"Klasik Pizza"
         fiyat=44.99
